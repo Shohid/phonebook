@@ -11,7 +11,7 @@ Project  Feature:
 -Delete entry, Display entry
 -Add details or modify.
 
-Tools Used: C language , Emulator turbo C.
+Tools Used: C language , Codeblocks.
 
 Role: Designing, Implementing.
 
