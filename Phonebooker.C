@@ -2,7 +2,9 @@
 #include<string.h>
 #include<stdlib.h>
 #include<windows.h>
+
 COORD coord = {0, 0};
+
 void gotoxy(int x, int y)
 {
     COORD coord;
@@ -10,6 +12,7 @@ void gotoxy(int x, int y)
     coord.Y = y;
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
 void lbox(int x,int y)
 {
     int i;
@@ -43,8 +46,8 @@ void lbox(int x,int y)
         gotoxy(x+15,i+1);
         printf("%c",186);
     }
-
 }
+
 void lbox4(int x,int y)
 {
     int i;
@@ -79,6 +82,7 @@ void lbox4(int x,int y)
         printf("%c",186);
     }
 }
+
 void lbox3(int x,int y)
 {
     int i;
@@ -112,183 +116,24 @@ void lbox3(int x,int y)
         gotoxy(x+11,i+1);
         printf("%c",186);
     }
-
-}
-void lbox2(int x,int y)
-{
-    int i;
-    gotoxy(x,y);
-    printf("%c",201);
-    for(i=x+1; i<x+20; i++)
-    {
-        gotoxy(i,y);
-        printf("%c",205);
-    }
-    gotoxy(x+20,y);
-    printf("%c",187);
-    gotoxy(x,y);
-    for(i=y; i<y+2; i++)
-    {
-        gotoxy(x,i+1);
-        printf("%c",186);
-    }
-    gotoxy(x,y+2);
-    printf("%c",200);
-    for(i=x+1; i<x+20; i++)
-    {
-        gotoxy(i,y+2);
-        printf("%c",205);
-    }
-    gotoxy(x+20,y+2);
-    printf("%c",188);
-    gotoxy(x+20,y);
-    for(i=y; i<y+1; i++)
-    {
-        gotoxy(x+20,i+1);
-        printf("%c",186);
-    }
-
-}
-void box1()
-{
-    int i;
-    gotoxy(1,3);
-    printf("%c",201);
-    for(i=1; i<79; i++)
-    {
-        gotoxy(1+i,3);
-        printf("%c",205);
-    }
-    gotoxy(80,3);
-    printf("%c",187);
-    gotoxy(1,3);
-    for(i=4; i<8; i++)
-    {
-        gotoxy(1,i);
-        printf("%c",186);
-    }
-    gotoxy(1,9);
-    for(i=4; i<8; i++)
-    {
-        gotoxy(80,i);
-        printf("%c",186);
-    }
-    gotoxy(80,7);
-    printf("%c",188);
-    gotoxy(1,7);
-    printf("%c",200);
-    for(i=1; i<79; i++)
-    {
-        gotoxy(1+i,7);
-        printf("%c",205);
-    }
 }
 
-void box()
-{
-    int i;
-    for(i=3; i<=79; i++)
-    {
-        gotoxy(i,3);
-        printf("%c",219);
-        gotoxy(78,45);
-        printf("%c",219);
-        gotoxy(i,45);
-        printf("%c",219);
-    }
-
-    for(i=3; i<=45; i++)
-    {
-        gotoxy(3,i);
-        printf("%c",219);
-        gotoxy(79,i);
-        printf("%c",219);
-    }
-}
-void wbox()
-{
-    int i;
-    for(i=12; i<=62; i++)
-    {
-        gotoxy(i,17);
-        printf("%c",219);
-    }
-    for(i=17; i<=60; i++)
-    {
-        gotoxy(12,i);
-        printf("%c",219);
-        gotoxy(62,i);
-        printf("%c",219);
-    }
-    for(i=12; i<=62; i++)
-    {
-        gotoxy(i,60);
-        printf("%c",219);
-    }
-}
-
-void wbox1()
-{
-    int i;
-    for(i=3; i<=85; i++)
-    {
-        gotoxy(i,3);
-        printf("%c",219);
-    }
-    for(i=3; i<=85; i++)
-    {
-        gotoxy(3,i);
-        printf("%c",219);
-        gotoxy(85,i);
-        printf("%c",219);
-    }
-    for(i=112; i<=85; i++)
-    {
-        gotoxy(i,85);
-        printf("%c",219);
-    }
-}
-
-void ani(int y){
-    int i;
-    for (i=27; i>=10; i--)
-    {
-        Sleep(20);
-        gotoxy(i,y);
-    }
-    for (i=10; i<=55; i++)
-    {
-        Sleep(20);
-        gotoxy(i,y);
-    }
-}
-void ani2(int y){
-    int i;
-    for (i=10; i<=60; i++)
-    {
-        Sleep(20);
-        gotoxy(y,i);
-    }
-    for (i=42; i>=10; i--)
-    {
-        Sleep(20);
-        gotoxy(y,i);
-    }
-}
 struct contact
 {
     char name[1000],add[1000],email[1000];
     long long m_no;
 } phn;
+
 char query[1000],name[1000];
 FILE *fp,*fp2,*ft;
 int ch,tt,i,found,l,xx,yy,zz;
+
 int main()
 {
 main:
 ff:
     system( "cls" );
-    //box();
+
     char s[100],s1[100],s2[100];
     long long int x,y;
     gotoxy(21,6);
@@ -308,7 +153,7 @@ ff:
     lbox3(59,8);
     gotoxy(61,12);
     printf("[0]EXIT");
-    wbox1();
+
     zz=19;
     fflush(stdin);
     found=0;
@@ -332,10 +177,9 @@ ff:
         }
         fclose(fp);
     }
-    //ani2(5);
-    //ani(6);
-    gotoxy(62,6);
-    printf( "Enter the choice:" );
+
+    gotoxy(27,6);
+    printf( "\n                               Enter the choice:" );
     scanf( "%d",&ch);
     switch (ch)
     {
@@ -595,30 +439,7 @@ E:
         printf( "Invalid choice" );
         Sleep(900);
         goto ff;
-         case 5:    /* *********************list of contacts************************* */
-        system( "cls" );
-        printf( "\n\t\t================================\n\t\t\tLIST OF CONTACTS\n\t\t================================\n================================================================\n\n" );
-        for(i=97; i<=122; i++)
-        {
-            fp=fopen( "contact.dat", "r" );
-            fflush(stdin);
-            found=0;
-            while(fscanf(fp,"%s %lld %s %s",phn.name,&phn.m_no,phn.add,phn.email)!=EOF)
-            {
-                if (phn.name[0]==i || phn.name[0]==i-32)
-                {
-                    printf( "\nName: %s\nPhone: %lld\nAddress: %s\nEmail: %s\n",phn.name,phn.m_no,phn.add,phn.email);
-                    found++;
-                }
-            }
-            if (found!=0)
-            {
-                printf( "=========================================================== [%c]-(%d)\n\n",i-32,found);
-                getch();
-            }
-            fclose(fp);
-        }
-        break;
+
     }
 fs:
     gotoxy(15,63);
